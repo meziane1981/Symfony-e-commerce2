@@ -31,9 +31,13 @@ class Orders
     #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrdersDetails::class, orphanRemoval: true)]
     private $ordersDetails;
 
+    #[ORM\OneToMany(mappedBy: 'orders', targetEntity: OrdersDetails::class, orphanRemoval: true)]
+    private $clear;
+
     public function __construct()
     {
         $this->ordersDetails = new ArrayCollection();
+        $this->clear = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -113,6 +117,36 @@ class Orders
             // set the owning side to null (unless already changed)
             if ($ordersDetail->getOrders() === $this) {
                 $ordersDetail->setOrders(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OrdersDetails>
+     */
+    public function getClear(): Collection
+    {
+        return $this->clear;
+    }
+
+    public function addClear(OrdersDetails $clear): self
+    {
+        if (!$this->clear->contains($clear)) {
+            $this->clear[] = $clear;
+            $clear->setOrders($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClear(OrdersDetails $clear): self
+    {
+        if ($this->clear->removeElement($clear)) {
+            // set the owning side to null (unless already changed)
+            if ($clear->getOrders() === $this) {
+                $clear->setOrders(null);
             }
         }
 

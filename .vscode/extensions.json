@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "pranaygp.vscode-css-peek",
+        "ohansemmanuel.css-grid-snippets"
+    ],
+    "unwantedRecommendations": [
+        "whatwedo.twig"
+    ]
+}

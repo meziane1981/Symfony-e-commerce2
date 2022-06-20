@@ -6,10 +6,12 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class Users implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -30,7 +32,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $lastname;
 
     #[ORM\Column(type: 'string', length: 100)]
-    private $firtsname;
+    private $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $address;
@@ -50,6 +52,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->created_at = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -134,14 +137,14 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getFirsname(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->firsname;
+        return $this->firstname;
     }
 
-    public function setFirsname(string $firsname): self
+    public function setFirstname(string $firstname): self
     {
-        $this->firsname = $firsname;
+        $this->firstname = $firstname;
 
         return $this;
     }

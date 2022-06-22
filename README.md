@@ -4,3 +4,4 @@
 3 Mise en place des templates et des assets CSS et JS
 4 Inscription et authentification des utilisateurs
 5 Optimisation des entités et DataFixtures 
+6Création des contrôleurs

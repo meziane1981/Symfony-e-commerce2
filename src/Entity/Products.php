@@ -14,6 +14,7 @@ class Products
 {
     use CreatedAtTrait;
     use SlugTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -30,7 +31,7 @@ class Products
 
     #[ORM\Column(type: 'integer')]
     private $stock;
- 
+
     #[ORM\ManyToOne(targetEntity: Categories::class, inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private $categories;
@@ -41,14 +42,10 @@ class Products
     #[ORM\OneToMany(mappedBy: 'products', targetEntity: OrdersDetails::class)]
     private $ordersDetails;
 
-    #[ORM\OneToMany(mappedBy: 'products', targetEntity: OrdersDetails::class)]
-    private $CLEAR;
-
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->ordersDetails = new ArrayCollection();
-        $this->CLEAR = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
     }
 
@@ -118,7 +115,7 @@ class Products
     }
 
     /**
-     * @return Collection<int, Images>
+     * @return Collection|Images[]
      */
     public function getImages(): Collection
     {
@@ -148,7 +145,7 @@ class Products
     }
 
     /**
-     * @return Collection<int, OrdersDetails>
+     * @return Collection|OrdersDetails[]
      */
     public function getOrdersDetails(): Collection
     {
@@ -171,36 +168,6 @@ class Products
             // set the owning side to null (unless already changed)
             if ($ordersDetail->getProducts() === $this) {
                 $ordersDetail->setProducts(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, OrdersDetails>
-     */
-    public function getCLEAR(): Collection
-    {
-        return $this->CLEAR;
-    }
-
-    public function addCLEAR(OrdersDetails $cLEAR): self
-    {
-        if (!$this->CLEAR->contains($cLEAR)) {
-            $this->CLEAR[] = $cLEAR;
-            $cLEAR->setProducts($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCLEAR(OrdersDetails $cLEAR): self
-    {
-        if ($this->CLEAR->removeElement($cLEAR)) {
-            // set the owning side to null (unless already changed)
-            if ($cLEAR->getProducts() === $this) {
-                $cLEAR->setProducts(null);
             }
         }
 

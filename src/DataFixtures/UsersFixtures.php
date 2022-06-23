@@ -15,12 +15,13 @@ class UsersFixtures extends Fixture
         private UserPasswordHasherInterface $passwordEncoder,
         private SluggerInterface $slugger
     ){}
+
     public function load(ObjectManager $manager): void
     {
         $admin = new Users();
         $admin->setEmail('admin@demo.fr');
-        $admin->setLastname('Meziane');
-        $admin->setFirstname('Maamar');
+        $admin->setLastname('Gambier');
+        $admin->setFirstname('Benoit');
         $admin->setAddress('12 rue du port');
         $admin->setZipcode('75001');
         $admin->setCity('Paris');
@@ -30,7 +31,7 @@ class UsersFixtures extends Fixture
         $admin->setRoles(['ROLE_ADMIN']);
 
         $manager->persist($admin);
- 
+
         $faker = Faker\Factory::create('fr_FR');
 
         for($usr = 1; $usr <= 5; $usr++){
@@ -46,10 +47,6 @@ class UsersFixtures extends Fixture
             );
             $manager->persist($user);
         }
-
-
-
-
 
         $manager->flush();
     }

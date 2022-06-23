@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Categories
 {
     use SlugTrait;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -20,7 +21,7 @@ class Categories
     #[ORM\Column(type: 'string', length: 100)]
     private $name;
 
-    #[ORM\Column(type: 'string', length: 100)]
+    #[ORM\Column(type: 'integer')]
     private $categoryOrder;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
@@ -67,6 +68,7 @@ class Categories
 
         return $this;
     }
+
     public function getParent(): ?self
     {
         return $this->parent;
@@ -80,7 +82,7 @@ class Categories
     }
 
     /**
-     * @return Collection<int, self>
+     * @return Collection|self[]
      */
     public function getCategories(): Collection
     {
@@ -110,7 +112,7 @@ class Categories
     }
 
     /**
-     * @return Collection<int, Products>
+     * @return Collection|Products[]
      */
     public function getProducts(): Collection
     {
@@ -138,5 +140,4 @@ class Categories
 
         return $this;
     }
-    
 }

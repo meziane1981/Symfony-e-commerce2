@@ -38,7 +38,7 @@ class Coupons
 
     #[ORM\ManyToOne(targetEntity: CouponsTypes::class, inversedBy: 'coupons')]
     #[ORM\JoinColumn(nullable: false)]
-    private $Coupons_types;
+    private $coupons_types;
 
     #[ORM\OneToMany(mappedBy: 'coupons', targetEntity: Orders::class)]
     private $orders;
@@ -114,7 +114,7 @@ class Coupons
         return $this;
     }
 
-    public function isIsValid(): ?bool
+    public function getIsValid(): ?bool
     {
         return $this->is_valid;
     }
@@ -126,21 +126,20 @@ class Coupons
         return $this;
     }
 
-    
     public function getCouponsTypes(): ?CouponsTypes
     {
-        return $this->Coupons_types;
+        return $this->coupons_types;
     }
 
-    public function setCouponsTypes(?CouponsTypes $Coupons_types): self
+    public function setCouponsTypes(?CouponsTypes $coupons_types): self
     {
-        $this->Coupons_types = $Coupons_types;
+        $this->coupons_types = $coupons_types;
 
         return $this;
     }
 
     /**
-     * @return Collection<int, Orders>
+     * @return Collection|Orders[]
      */
     public function getOrders(): Collection
     {

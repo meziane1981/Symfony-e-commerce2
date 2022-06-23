@@ -7,8 +7,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Orders>
- *
  * @method Orders|null find($id, $lockMode = null, $lockVersion = null)
  * @method Orders|null findOneBy(array $criteria, array $orderBy = null)
  * @method Orders[]    findAll()
@@ -21,46 +19,32 @@ class OrdersRepository extends ServiceEntityRepository
         parent::__construct($registry, Orders::class);
     }
 
-    public function add(Orders $entity, bool $flush = false): void
+    // /**
+    //  * @return Orders[] Returns an array of Orders objects
+    //  */
+    /*
+    public function findByExampleField($value)
     {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('o.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
     }
+    */
 
-    public function remove(Orders $entity, bool $flush = false): void
+    /*
+    public function findOneBySomeField($value): ?Orders
     {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
     }
-
-//    /**
-//     * @return Orders[] Returns an array of Orders objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('o')
-//            ->andWhere('o.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('o.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Orders
-//    {
-//        return $this->createQueryBuilder('o')
-//            ->andWhere('o.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    */
 }

@@ -7,8 +7,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<CouponsTypes>
- *
  * @method CouponsTypes|null find($id, $lockMode = null, $lockVersion = null)
  * @method CouponsTypes|null findOneBy(array $criteria, array $orderBy = null)
  * @method CouponsTypes[]    findAll()
@@ -21,46 +19,32 @@ class CouponsTypesRepository extends ServiceEntityRepository
         parent::__construct($registry, CouponsTypes::class);
     }
 
-    public function add(CouponsTypes $entity, bool $flush = false): void
+    // /**
+    //  * @return CouponsTypes[] Returns an array of CouponsTypes objects
+    //  */
+    /*
+    public function findByExampleField($value)
     {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('c.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
     }
+    */
 
-    public function remove(CouponsTypes $entity, bool $flush = false): void
+    /*
+    public function findOneBySomeField($value): ?CouponsTypes
     {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
     }
-
-//    /**
-//     * @return CouponsTypes[] Returns an array of CouponsTypes objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?CouponsTypes
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    */
 }

@@ -18,7 +18,7 @@ class CouponsTypes
     #[ORM\Column(type: 'string', length: 50)]
     private $name;
 
-    #[ORM\OneToMany(mappedBy: 'Coupons_types', targetEntity: Coupons::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'coupons_types', targetEntity: Coupons::class, orphanRemoval: true)]
     private $coupons;
 
     public function __construct()
@@ -44,7 +44,7 @@ class CouponsTypes
     }
 
     /**
-     * @return Collection<int, Coupons>
+     * @return Collection|Coupons[]
      */
     public function getCoupons(): Collection
     {

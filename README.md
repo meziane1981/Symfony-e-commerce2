@@ -28,4 +28,4 @@ Vous trouverez le schéma de base de données ici : https://dbdiagram.io/d/61643
 7. [Création des contrôleurs]
 8. [Intégrer les données dans les vues]
 9.Vélodrome
->>>>>>> 63bf88405cf3f20e5bc91d1f076a102acfc6468f
+>>>>>>> 63bf88405cf3f20e5bc91d1f076a102acfc6468f  

@@ -7,7 +7,6 @@ Vous trouverez le schéma de base de données ici : https://dbdiagram.io/d/61643
 
 ## Chapitres
 
-<<<<<<< HEAD
 1. [Installation de Symfony](https://www.youtube.com/watch?v=kuKb3VfcTWE&list=PLBq3aRiVuwyzI0MT4LhvwqkVenz5pF_DM)
 2. [Présentation et configuration du projet](https://www.youtube.com/watch?v=kpSYFMV4eJc&list=PLBq3aRiVuwyzI0MT4LhvwqkVenz5pF_DM) ([Github](https://github.com/NouvelleTechno/e-commerce-Symfony-6/tree/66945f03393e89a400a2e4bf903a5707f0e826ae))
 3. [Création de la base de données](https://www.youtube.com/watch?v=MhVAwrujifQ&list=PLBq3aRiVuwyzI0MT4LhvwqkVenz5pF_DM) ([Github](https://github.com/NouvelleTechno/e-commerce-Symfony-6/tree/8aac3b89650ec88dfbdcbee5b3be3ad3a0490e6e))
@@ -18,14 +17,3 @@ Vous trouverez le schéma de base de données ici : https://dbdiagram.io/d/61643
 8. [Intégrer les données dans les vues](https://www.youtube.com/watch?v=OG-ALaraXoo&list=PLBq3aRiVuwyzI0MT4LhvwqkVenz5pF_DM) ([Github](https://github.com/NouvelleTechno/e-commerce-Symfony-6/tree/66484fc5e7157942206e650a08ebd3a7904a7ae1))
 9. [Vérifier l'adresse e-mail de l'utilisateur](https://www.youtube.com/watch?v=UrJUn2EL07U&list=PLBq3aRiVuwyzI0MT4LhvwqkVenz5pF_DM) ([Github](https://github.com/NouvelleTechno/e-commerce-Symfony-6/tree/996e9e06990f27560f45185f2be1fbda01a28dfa))
 10. [Récupération de mot de passe sans bundle ](https://www.youtube.com/watch?v=ZPqcKl2Izt0&list=PLBq3aRiVuwyzI0MT4LhvwqkVenz5pF_DM) ([Github](https://github.com/NouvelleTechno/e-commerce-Symfony-6/tree/b4157fdcc7c1fc8b6ce80ca6494d2f60f56724b4))
-=======
-1. [Installation de Symfony]
-2. [Présentation et configuration du projet]
-3. [Création de la base de données]
-4. [Templates twig]
-5. [Inscription et authentification]
-6. [Optimisation des entités et DataFixtures]
-7. [Création des contrôleurs]
-8. [Intégrer les données dans les vues]
-9.Vélodrome
->>>>>>> 63bf88405cf3f20e5bc91d1f076a102acfc6468f  

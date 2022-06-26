@@ -122,8 +122,7 @@ class RegistrationController extends AbstractController
 
         // On crée le Payload
         $payload = [
-            'user_id' => $user->getId()
-        ];
+            'user_id' => $user->getId()];
 
         // On génère le token
         $token = $jwt->generate($header, $payload, $this->getParameter('app.jwtsecret'));
